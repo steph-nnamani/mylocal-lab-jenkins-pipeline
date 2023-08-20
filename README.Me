@@ -1,0 +1,28 @@
+Local Test Environment Setup
+=============================
+
+My local lab/build/test environment is set up as follows:
+
+JENKINS-IMAGE with add-ons: terraform, kubectl, Git, Maven, etc
+
+Build the image spin the container and log into Jenkins, install desired plugins and use Jenkins as 
+CI pipeline for your local developments.
+
+You can spin up the container from the Docker Desktop as follows:
+
+Under Images -> scroll down to the Jenkins Image => click on run icon -> click on settings -> set the ports to 
+50000 and 8080 following the highlights on the righ side of the interface. 
+
+You can also mount your aws credentials as a volume by the following steps:
+
+Access the credentials file (.aws) on your local machine and copy the path.
+Paste this path as the Host path in the Docker Desktop, 
+Since we are running the container as root, fill-in the Container path as follows:
+         /root/.aws
+
+Alternatively:
+You can spin up and configure the container to run with the volume from the CLI with the:
+Docker run -v command.
+
+Suggested plugins:
+Ansicolor,
